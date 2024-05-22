@@ -24,35 +24,53 @@
                     <div class="card-header bg-dark">
                         <h3 class="text-primary">Create products</h3>
                     </div>
-                    <div class="card-body h5">
-                        <div class="mb-3">
-                            <label for="" class="form-label">Name</label>
-                            <input type="text" class="form-control form-control-lg" placeholder="Name"
-                                name="name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">SKU</label>
-                            <input type="text" class="form-control form-control-lg" placeholder="Sku" name="sku">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Price</label>
-                            <input type="text" class="form-control form-control-lg" placeholder="Price"
-                                name="price">
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Description</label>
-                            <textarea name="description" placeholder="description" class="form-control" id="" cols="30"
-                                rows="10"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Image</label>
-                            <input type="file" class="form-control form-control-lg" placeholder="" name="image">
-                        </div>
-                        <div class="d-grid">
-                            <button class="btn btn-lg btn-primary">submit</button>
-                        </div>
 
-                    </div>
+                    <form action="{{ route('product.store') }}" method="post">
+                        @csrf
+                        <div class="card-body h5">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Name</label>
+                                <input type="text"
+                                    class=" @error('name') is-invalid @enderror form-control form-control-lg"
+                                    placeholder="Name" name="name">
+                                @error('name')
+                                    <p class="invalid-feedback">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">SKU</label>
+                                <input type="text"
+                                    class=" @error('name') is-invalid @enderror form-control form-control-lg"
+                                    placeholder="Sku" name="sku">
+                                @error('sku')
+                                    <p class="invalid-feedback">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Price</label>
+                                <input type="text"
+                                    class=" @error('name') is-invalid @enderror form-control form-control-lg"
+                                    placeholder="Price" name="price">
+                                @error('price')
+                                    <p class="invalid-feedback">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Description</label>
+                                <textarea name="description" placeholder="description" class="form-control" id="" cols="30"
+                                    rows="10"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Image</label>
+                                <input type="file" class="form-control form-control-lg" placeholder=""
+                                    name="image">
+                            </div>
+                            <div class="d-grid">
+                                <button class="btn btn-lg btn-primary">submit</button>
+                            </div>
+
+                        </div>
+                    </form>
 
 
                 </div>
